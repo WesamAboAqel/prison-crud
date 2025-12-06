@@ -35,7 +35,7 @@ const AddManager = () => {
 
         addManager(newManager)
 
-        return ;
+        return navigate('/managers');
     }
 
     

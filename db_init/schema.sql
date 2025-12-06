@@ -32,7 +32,7 @@ CREATE TABLE managers (
 CREATE TABLE prisoners (
     id           integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     fullname     varchar(128) NOT NULL,
-    prisonercase integer NOT NULL,
+    prisonercase integer,
     nationality  varchar(64) NOT NULL,
     gender       sex NOT NULL,
     dob          date NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE staffallowedfacilities (
 -- Foreign keys
 ALTER TABLE facilities               ADD CONSTRAINT facilities_manager_fk   FOREIGN KEY (manager_id)  REFERENCES managers(id);
 ALTER TABLE managers                 ADD CONSTRAINT managers_facility_fk    FOREIGN KEY (facility_id)  REFERENCES facilities(id);
-ALTER TABLE prisoners                ADD CONSTRAINT prisoners_case_fk       FOREIGN KEY (prisonercase) REFERENCES prisonercases(id);
+ALTER TABLE prisoners                ADD CONSTRAINT prisoners_case_fk       FOREIGN KEY (prisonercase) REFERENCES prisonercases(id) DEFERRABLE INITIALLY DEFERRED;
 ALTER TABLE staff                    ADD CONSTRAINT staff_facility_fk       FOREIGN KEY (facility_id)  REFERENCES facilities(id);
 ALTER TABLE staff                    ADD CONSTRAINT staff_manager_fk        FOREIGN KEY (manager_id)   REFERENCES managers(id);
 ALTER TABLE staff                    ADD CONSTRAINT staff_shift_fk          FOREIGN KEY (shift)        REFERENCES shifts(id);

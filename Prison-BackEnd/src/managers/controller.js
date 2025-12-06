@@ -35,7 +35,7 @@ export const getManager = (request,response,next) => {
 }
 
 export const addManager = (request,response,next) => {
-    console.log(request.body)
+    // console.log(request.body)
     const {name, staff_count,facility_id,address,phonenumber} = request.body.manager
         pool.query(Query.addManager, [name, staff_count, facility_id,address,phonenumber], (error,results) => {
         if(error) return next(error)

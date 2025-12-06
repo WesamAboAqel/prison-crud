@@ -163,7 +163,7 @@ const Manager = () => {
 
               <h3 className="text-xl font-bold mb-6">Manage Facility</h3>
               <Link
-                to={`/facility/edit/${facility.id}`}
+                to={`/facilities/edit/${facility.id}`}
                 className="bg-green-700 hover:bg-green-800 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Facility</Link
               >
